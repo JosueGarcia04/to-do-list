@@ -8,43 +8,40 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 </head>
 <body>
-
-    <main class="container-fluid">
+    <main class="container">
         <div class="row my-5">
             <h1 class="col text-center">To Do List con <b>Django</b></h1>
         </div>
         <div class="row justify-content-center py-5">
-
-            <div class="col-6 row justify-content-center h-50 p-5">
-                <form class="w-75" method="post" action={% url "insert" %}>
+            <div class="col-md-6">
+                <form class="p-4 border rounded" method="post" action="{% url 'insert' %}">
                     {% csrf_token %}
                     <div class="mb-3">
                         <label for="subject" class="form-label">Materia</label>
-                        <input type="text" class="form-control" name="subject" id="subject" aria-describedby="emailHelp">
+                        <input type="text" class="form-control" name="subject" id="subject" required>
                     </div>
                     <div class="mb-3">
                         <label for="description" class="form-label">Descripción</label>
-                        <textarea type="text" name="description" class="form-control" id="description"></textarea>
+                        <textarea name="description" class="form-control" id="description" required></textarea>
                     </div>
                     <button type="submit" class="btn btn-success w-100">Añadir materia</button>
                 </form>
             </div>
 
-            <div class="col-5 container justify-content-center">
-            {% for data in database %}
-               <div class="row">
-                <div class="card w-75 col m-2">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ data.subject }}</h5>
-                        <p class="card-text">{{ data.description }}</p>
-                        <a href="#" class="btn btn-primary">Update</a>
-                        <a href="#" class="btn btn-danger">Delete</a>
+            <div class="col-md-6">
+                {% for data in database %}
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ data.subject }}</h5>
+                            <p class="card-text">{{ data.description }}</p>
+                            <div class="d-flex justify-content-between">
+                                <a href="#" class="btn btn-primary">Update</a>
+                                <a href="#" class="btn btn-danger">Delete</a>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                </div>
-            {% endfor %}
+                {% endfor %}
             </div>
-
         </div>
     </main>
     

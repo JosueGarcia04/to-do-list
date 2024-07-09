@@ -4,7 +4,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 
 # Create your views here.
-def index(request):
+def index(request):     
     database = Task.objects.all()
     context = {
         "database": database
