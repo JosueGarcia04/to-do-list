@@ -11,7 +11,7 @@
 
     <main class="container-fluid">
         <div class="row my-5">
-            <h1 class="col text-center">To Do List with <b>Django</b></h1>
+            <h1 class="col text-center">To Do List con <b>Django</b></h1>
         </div>
         <div class="row justify-content-center py-5">
 
@@ -19,14 +19,14 @@
                 <form class="w-75" method="post" action="">
                     {% csrf_token %}
                     <div class="mb-3">
-                        <label for="subject" class="form-label">Subject</label>
+                        <label for="subject" class="form-label">Materia</label>
                         <input type="text" class="form-control" name="subject" id="subject" aria-describedby="emailHelp">
                     </div>
                     <div class="mb-3">
-                        <label for="description" class="form-label">Description</label>
+                        <label for="description" class="form-label">Descripción</label>
                         <textarea type="text" name="description" class="form-control" id="description"></textarea>
                     </div>
-                    <button type="submit" class="btn btn-success w-100">Add</button>
+                    <button type="submit" class="btn btn-success w-100">Añadir materia</button>
                 </form>
             </div>
 
