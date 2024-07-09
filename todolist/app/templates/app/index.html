@@ -16,7 +16,7 @@
         <div class="row justify-content-center py-5">
 
             <div class="col-6 row justify-content-center h-50 p-5">
-                <form class="w-75" method="post" action="">
+                <form class="w-75" method="post" action={% url "insert" %}>
                     {% csrf_token %}
                     <div class="mb-3">
                         <label for="subject" class="form-label">Materia</label>
@@ -31,7 +31,7 @@
             </div>
 
             <div class="col-5 container justify-content-center">
-            {% for data in db_data %}
+            {% for data in database %}
                <div class="row">
                 <div class="card w-75 col m-2">
                     <div class="card-body">
