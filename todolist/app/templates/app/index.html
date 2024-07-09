@@ -10,7 +10,7 @@
 <body>
     <main class="container">
         <div class="row my-5">
-            <h1 class="col text-center">To Do List con <b>Django</b></h1>
+            <h1 class="col text-center">Lista de cosas a hacer <b>Escuela</b></h1>
         </div>
         <div class="row justify-content-center py-5">
             <div class="col-md-6">
@@ -35,8 +35,8 @@
                             <h5 class="card-title">{{ data.subject }}</h5>
                             <p class="card-text">{{ data.description }}</p>
                             <div class="d-flex justify-content-between">
-                                <a href="#" class="btn btn-primary">Update</a>
-                                <a href="#" class="btn btn-danger">Delete</a>
+                                <a href="#" class="btn btn-primary">Actualizar tarea</a>
+                                <a href={% url "delete" data.id %} class="btn btn-danger">Borrar tarea</a>
                             </div>
                         </div>
                     </div>
