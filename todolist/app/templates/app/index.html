@@ -12,6 +12,18 @@
         <div class="row my-5">
             <h1 class="col text-center">Lista de cosas a hacer <b>Escuela</b></h1>
         </div>
+        {% if messages %}
+        <div class="row">
+            <div class="col">
+                {% for message in messages %}
+                <div class="alert {% if message.tags %}alert-{{ message.tags }}{% else %}alert-info{% endif %} alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
         <div class="row justify-content-center py-5">
             <div class="col-md-6">
                 <form class="p-4 border rounded" method="post" action="{% url 'insert' %}">

@@ -23,10 +23,11 @@ def insert(request):
         messages.success(request, "tarea añadida")
         return HttpResponseRedirect(reverse("index"))
     except ValueError as err:
-        messages.error(request)
+        messages.error(request, str(err))
         return HttpResponseRedirect(reverse("index"))
 
 def delete(request, task_id):
     task = get_object_or_404(Task, id=task_id)
     task.delete()
+    messages.success(request, "Tarea borrada con éxito.")
     return HttpResponseRedirect(reverse("index"))
