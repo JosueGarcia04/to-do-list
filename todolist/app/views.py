@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from .models import Task
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
+from django.contrib import messages
 
 # Create your views here.
 def index(request):
@@ -19,9 +20,10 @@ def insert(request):
             raise ValueError("El texto no puede estar vacío :(")
         database = Task(subject=task_subject, description=task_description)
         database.save()
+        messages.success(request, "tarea añadida")
         return HttpResponseRedirect(reverse("index"))
     except ValueError as err:
-        print(err)
+        messages.error(request)
         return HttpResponseRedirect(reverse("index"))
 
 def delete(request, task_id):
