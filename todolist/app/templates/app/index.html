@@ -10,7 +10,7 @@
     <header class="d-flex justify-content-between align-items-center p-3 bg-light">
         <h1 class="h3">To-Do List</h1>
         <div>
-            <span>Hola, josue123</span>
+            <span>Hola, Josue</span>
             <a href="{% url 'logout' %}" class="btn btn-secondary ms-3">Salir</a>
         </div>
     </header>
@@ -43,7 +43,28 @@
                     <button type="submit" class="btn btn-success w-100">Añadir materia</button>
                 </form>
             </div>
-
+        </div>
+        
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">¿Para qué sirven los gestores de tareas?</h5>
+                        <p class="card-text">Los gestores de tareas son herramientas diseñadas para ayudar a organizar, planificar y gestionar las actividades diarias, proyectos o tareas. Permiten crear listas de tareas, establecer prioridades, asignar fechas límite y realizar un seguimiento del progreso.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">¿Cómo utilizar esta aplicación?</h5>
+                        <p class="card-text">Para usar esta aplicación de gestión de tareas, puedes comenzar añadiendo nuevas tareas usando el formulario a la izquierda. Puedes actualizar una tarea haciendo clic en "Actualizar tarea" en cada tarjeta, o eliminarla haciendo clic en "Borrar tarea".</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row justify-content-center py-5">
             <div class="col-md-6">
                 {% for data in database %}
                     <div class="card mb-3">
