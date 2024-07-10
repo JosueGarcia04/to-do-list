@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from .models import Task
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+from django import render, redirect
 from django.contrib import messages
 
 # Create your views here.
@@ -52,3 +53,8 @@ def delete(request, task_id):
     task.delete()
     messages.success(request, "Tarea borrada con éxito.")
     return HttpResponseRedirect(reverse("index"))
+
+
+def logout(request):
+    messages.info(request, "Haz cerrado sesion ¿ingresar de nuevo?")
+    return render(request, "app/logout.html")
