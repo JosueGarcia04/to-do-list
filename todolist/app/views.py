@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Task
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.contrib import messages
 
@@ -20,12 +20,12 @@ def insert(request):
             raise ValueError("El texto no puede estar vacío :(")
         database = Task(subject=task_subject, description=task_description)
         database.save()
-        messages.success(request, "tarea añadida")
+        messages.success(request, "Tarea añadida")
         return HttpResponseRedirect(reverse("index"))
     except ValueError as err:
         messages.error(request, str(err))
         return HttpResponseRedirect(reverse("index"))
-    
+
 def update_form(request, task_id):
     task = get_object_or_404(Task, pk=task_id)
     if request.method == "POST":
@@ -46,7 +46,6 @@ def update_form(request, task_id):
             "task": task
         }
         return render(request, "app/update.html", context)
-
 
 def delete(request, task_id):
     task = get_object_or_404(Task, id=task_id)
