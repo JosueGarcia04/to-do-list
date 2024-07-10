@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from .models import Task
 from django.http import HttpResponseRedirect
 from django.urls import reverse
-from django import render, redirect
+from django.shortcuts import render, redirect
 from django.contrib import messages
 
 # Create your views here.
@@ -53,6 +53,18 @@ def delete(request, task_id):
     task.delete()
     messages.success(request, "Tarea borrada con éxito.")
     return HttpResponseRedirect(reverse("index"))
+
+
+def login_view(request):
+    if request.method == "POST":
+        username = request.POST["username"]
+        password = request.POST["password"]
+        if username == "josue123" and password == "josue123":
+            return redirect("index")
+        else:
+            messages.error(request, "Credenciales inválidas")
+            return redirect("login")
+    return render(request, "app/login.html")
 
 
 def logout(request):
